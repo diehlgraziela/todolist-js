@@ -1,0 +1,134 @@
+/* Global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    color: rgb(36, 36, 36);
+}
+
+body {
+    background-image: url(../images/background.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+button {
+    background: #f2f2f2;
+    color: #67aa64;
+    border: 1px solid #67aa64;
+    padding: 0.3rem 0.6rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.2s;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button:hover {
+    background: #67aa64;
+    color: #f2f2f2;
+}
+
+button:hover i {
+    color: #f2f2f2;
+    pointer-events: none;
+}
+
+i {
+    color: #67aa64;
+}
+
+input,
+select {
+    background: #fcfcfc;
+    border: 1px solid #c5d3c4;
+    padding: 0.3rem;
+    outline: none;
+    width: 100%;
+}
+
+.hide {
+    display: none;
+}
+
+/* To do header */
+.todo-container {
+    background: #f2f2f2;
+    margin: 3rem auto;
+    padding: 1.5rem;
+    max-width: 450px;
+    border-radius: 15px;
+}
+
+.todo-container header {
+    text-align: center;
+    padding: 0 0 1rem;
+    border-bottom: 1px solid #ccc;
+}
+
+/* To do form */
+#todo-form,
+#edit-form {
+    padding: 1rem 0;
+    border-bottom: 1px solid #ccc;
+}
+
+#todo-form p,
+#edit-form p {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.form-control {
+    display: flex;
+    gap: 0.3rem;
+}
+
+#cancel-edit-button {
+    margin-top: 1rem;
+}
+
+/* Toolbar */
+#toolbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-bottom: 1px solid #ccc;
+}
+
+#toolbar h4 {
+    margin-bottom: 0.5rem;
+}
+
+/* To do list */
+
+.todo {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1rem 0.5rem;
+    border-bottom: 1px solid #ddd;
+    transition: 0.3s;
+}
+
+.todo h3 {
+    flex: 1;
+    font-size: 14px;
+}
+
+.todo button {
+    margin-left: 0.3rem;
+}
+
+.done {
+    background: #67aa64;
+}
+
+.done h3 {
+    color: #fff;
+    text-decoration: line-through;
+    font-style: italic;
+}
