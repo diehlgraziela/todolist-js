@@ -5,6 +5,7 @@ const todoList = document.getElementById('todo-list');
 const editForm = document.getElementById('edit-form');
 const editInput = document.getElementById('edit-input');
 const cancelEditBtn = document.getElementById('cancel-edit-button');
+const searchInput = document.getElementById('search-input');
 
 let oldInputValue;
 
@@ -52,6 +53,28 @@ const updateTodo = (text) => {
 
         if (todoTitle.innerText === oldInputValue) {
             todoTitle.innerText = text;
+        }
+    })
+}
+
+const searchTodo = (e) => {
+    //get search value
+    const search = e.target.value.toLowerCase();
+    //get all todos
+    const todos = document.querySelectorAll(".todo");
+
+    //array for each todo
+    todos.forEach((todo) => {
+        //get todo title and transform it to lower case
+        let todoTitle = todo.querySelector("h3").innerText.toLowerCase();
+
+        //display all todos
+        todo.style.display = "flex";
+
+        // if todo title doesn't include what the user searched
+        if (!todoTitle.includes(search)) {
+            //hide the todo
+            todo.style.display = "none";
         }
     })
 }
@@ -109,3 +132,5 @@ editForm.addEventListener('submit', (e) => {
 
     toggleForms();
 })
+
+searchInput.addEventListener('keyup', searchTodo)
