@@ -120,25 +120,6 @@ const filterTodo = (e) => {
     }
 }
 
-//add aria label on todo list for accessibility
-(function () {
-    let finish = document.querySelectorAll('.finish-todo');
-    let edit = document.querySelectorAll('.edit-todo');
-    let remove = document.querySelectorAll('.remove-todo');
-
-    for (let button of finish) {
-        button.setAttribute('aria-label', "Finalizar");
-    }
-
-    for (let button of edit) {
-        button.setAttribute('aria-label', "Editar");
-    }
-
-    for (let button of remove) {
-        button.setAttribute('aria-label', "Remover");
-    }
-}())
-
 //Events
 todoForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -172,6 +153,23 @@ document.addEventListener("click", (e) => {
 
         editInput.value = todoTitle;
         oldInputValue = todoTitle;
+    }
+
+    //add aria label on todo list for accessibility
+    let finish = document.querySelectorAll('.finish-todo');
+    let edit = document.querySelectorAll('.edit-todo');
+    let remove = document.querySelectorAll('.remove-todo');
+
+    for (let button of finish) {
+        button.setAttribute('aria-label', "Finalizar");
+    }
+
+    for (let button of edit) {
+        button.setAttribute('aria-label', "Editar");
+    }
+
+    for (let button of remove) {
+        button.setAttribute('aria-label', "Remover");
     }
 })
 
