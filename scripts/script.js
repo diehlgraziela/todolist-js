@@ -6,6 +6,7 @@ const editForm = document.getElementById('edit-form');
 const editInput = document.getElementById('edit-input');
 const cancelEditBtn = document.getElementById('cancel-edit-button');
 const searchInput = document.getElementById('search-input');
+const filter = document.getElementById('filter');
 
 let oldInputValue;
 
@@ -71,12 +72,51 @@ const searchTodo = (e) => {
         //display all todos
         todo.style.display = "flex";
 
-        // if todo title doesn't include what the user searched
+        //if todo title doesn't include what the user searched
         if (!todoTitle.includes(search)) {
             //hide the todo
             todo.style.display = "none";
         }
     })
+}
+
+const filterTodo = (e) => {
+    //get selected option
+    const option = e.target.value;
+    //get all todos
+    const todos = document.querySelectorAll(".todo");
+
+    switch (option) {
+        //if selected option is "all"
+        case "all":
+            todos.forEach((todo) => (todo.style.display = "flex"));
+            break;
+
+        case "done":
+            todos.forEach((todo) => {
+                //if todo contains "done" option
+                if (todo.classList.contains("done")) {
+                    todo.style.display = "flex";
+                } else {
+                    todo.style.display = "none";
+                }
+            })
+            break;
+
+        case "todo":
+            todos.forEach((todo) => {
+                //if todo doesn't contain "done" option
+                if (!todo.classList.contains("done")) {
+                    todo.style.display = "flex";
+                } else {
+                    todo.style.display = "none";
+                }
+            })
+            break;
+
+        default:
+            break;
+    }
 }
 
 //Events
@@ -133,4 +173,6 @@ editForm.addEventListener('submit', (e) => {
     toggleForms();
 })
 
-searchInput.addEventListener('keyup', searchTodo)
+searchInput.addEventListener('keyup', searchTodo);
+
+filter.addEventListener('change', filterTodo);
