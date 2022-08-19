@@ -6,6 +6,7 @@ const editForm = document.getElementById('edit-form');
 const editInput = document.getElementById('edit-input');
 const cancelEditBtn = document.getElementById('cancel-edit-button');
 const searchInput = document.getElementById('search-input');
+const searchErase = document.getElementById('erase-button');
 const filter = document.getElementById('filter');
 
 let oldInputValue;
@@ -176,3 +177,9 @@ editForm.addEventListener('submit', (e) => {
 searchInput.addEventListener('keyup', searchTodo);
 
 filter.addEventListener('change', filterTodo);
+
+searchErase.addEventListener('click', (e) => {
+    e.preventDefault();
+    searchInput.value = "";
+    searchInput.dispatchEvent(new Event('keyup'));
+})
